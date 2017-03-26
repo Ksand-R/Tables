@@ -13,3 +13,11 @@ Row& Row::operator =(const Row& n) {
 		return *this;
 	}
 }
+//
+//Table::Table(){
+//	Row* array[SIZE] = {};
+//	for (int i(0); i < SIZE; ++i) {
+//		(*array[i]).name = "None";
+//	}
+//	count_rows = 0;
+//}
