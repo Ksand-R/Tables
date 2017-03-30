@@ -388,3 +388,30 @@ Polynomial::~Polynomial() {
 	delete head;
 	size = 0;
 }
+ostream& operator << (ostream& os, const Polynomial& p) {
+	
+		Monom* temp = p.head->next;
+
+	while (temp != p.head) {
+
+			os << temp->coef;
+		if (temp->deg / 10000)
+		{
+			os << "x^" << temp->deg / 10000;
+		}
+		if (temp->deg / 100 % 100)
+		{
+			os << "y^" << temp->deg / 100 % 100;
+		}
+		if (temp->deg % 100)
+		{
+			os << "z^" << temp->deg % 100;
+		}
+
+		if ((temp->next) && (temp->next->coef > 0) && (temp->coef != 0)) {
+			os <<' + ';
+		}
+		temp = temp->next;
+	}
+	return os;
+}

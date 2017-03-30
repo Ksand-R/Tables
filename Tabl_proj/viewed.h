@@ -1,30 +1,21 @@
 #pragma once
 #include "Tabl_proj.h"
 
-class viewed_tables : public Table {
+class viewed_tables: public Table {
 private:
-	Row* array[SIZE] = {};
-
+	Row* array;
+	//int count_rows;
+	//GLOBAL_COUNTER_OF_ROWS
 public:
-	viewed_tables();
-	void print_table();
-	void insert(Row* r);
-	void remove(string name);
-	int search(string name);
-	void repacking();
+	viewed_tables(); //+-
+	void print_table(); //+-
+	void insert(const Row& r); //+-
+	void remove(string name); // -
+	Polynomial* search(string name); //+-
+	void repacking(); //+-
+	void realloc_(); //-
+	Row& operator [](const int i) { return (array[i]); } //+-
 
-	Row& operator [](const int i) { return *(array[i]); }
+	friend ostream& operator << (ostream& os, const viewed_tables& t); //+
 
-	friend ostream& operator << (ostream& os, const viewed_tables& t) {
-		for (int i(0); i < t.count_rows; ++i) {
-			os << t.array[i] << endl; //?????????????????
-				//t.array[i]->ptr_p->Print_poly() << endl;
-			return os;
-		}
-	}
-	
 };
-
-
-
-
