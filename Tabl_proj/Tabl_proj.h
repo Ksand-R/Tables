@@ -22,15 +22,15 @@ public:
 
 
 class Table {
-#define SIZE 15	
+
 
 public: 
-	int count_rows;
+	//unsigned int SIZE;
 	int filled_rows;
 
 	virtual void insert(const Row& r) = 0;
 	virtual void remove(string name) = 0;
-	virtual Polynomial* search(string name) = 0;
+	virtual Polynomial search(string name) = 0;
 	virtual void repacking() = 0;
 	virtual void print_table() = 0;
 

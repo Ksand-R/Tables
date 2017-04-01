@@ -35,10 +35,13 @@ int main() {
 	a.print_table();
 	//
 	cout << endl;
-	//cout << *(a.search("acd")) << endl;
+	cout << a.search("acd") << endl;
 
 	cout << "I'm alive yet" << endl;
-	a.realloc_();
+	a.remove("acd");
+	cout << endl;
+	a.print_table();
+	cout << "I'm alive yet" << endl;
 
 	return 0;
 }
