@@ -15,9 +15,11 @@ int main() {
 	Row R1("abc", &P1);
 	Row R2("acd", &P2);
 	Row R3("accd", &P2);
-	//Row R4("adcd", &P2);
-	//Row R5("ascd", &P2);
-	//Row R6("aacd", &P2);
+	Row R4("adcd", &P2);
+	Row R5("ascd", &P2);
+	Row R6("aacd", &P2);
+	Row R7("aafd", &P2);
+
 
 	cout <<endl << endl;
 	viewed_tables a;
@@ -25,23 +27,25 @@ int main() {
 		a.insert(R1);
 		a.insert(R2);
 		a.insert(R3);
-		//a.insert(R4);
-		//a.insert(R5);
-		//a.insert(R6);
+		a.insert(R4);
+		a.insert(R5);
+		a.insert(R6);
+		a.insert(R7);
 
-		//a.remove("acd");
-		//a.remove("accd");
+		a.remove("acd");
+		a.remove("accd");
 
 	a.print_table();
 	//
 	cout << endl;
-	cout << a.search("acd") << endl;
+	cout << a.search("aafd") << endl;
 
 	cout << "I'm alive yet" << endl;
-	a.remove("acd");
+	a.remove("aafd");
 	cout << endl;
 	a.print_table();
 	cout << "I'm alive yet" << endl;
+
 
 	return 0;
 }

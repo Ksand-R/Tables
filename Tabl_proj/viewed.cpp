@@ -4,14 +4,14 @@
 using namespace std;
 
 viewed_tables::viewed_tables() {
-	Row* array = new Row[5];
+	
+	array = new Row[size];
 	for(int i(0); i < size; i++){
-// cant alloc memory for the fields of struct Row
-		(array[i]).is__empty = true;
-		(array[i]).ptr_p = NULL;
-		(array[i]).name = "emp";
+		array[i].ptr_p = new Polynomial;
+		array[i].name = "emp";
+		array[i].is__empty = true;
 	}
-	filled_rows = 0;
+	filled_rows = 0;	
 }
 
 viewed_tables::~viewed_tables() {
@@ -20,50 +20,75 @@ viewed_tables::~viewed_tables() {
 }
 
 void viewed_tables::insert(const Row& r){
-	bool same_name = false;
-	for (int i(0); i < filled_rows; ++i) {
-		if (r.name == (*array[i]).name) {
-			same_name = true;
-			throw std::logic_error(" This name is already exists ");
-			cout << " Input error ";
+	
+	if (filled_rows == 0) {
+		array[0] = r;
+		array[0].is__empty = false;
+		filled_rows++;
+	}
+	else {
+		bool same_name = false;
+		for (int i(0); i < filled_rows; ++i) {
+			if (r.name == array[i].name) {
+				same_name = true;
+				throw std::logic_error(" This name is already exists "); // dont works
+				cout << " Input error "; // dont works
+			}
+		}
+		if (same_name == false){
+			if (filled_rows < size)
+			{
+				array[filled_rows] = r;
+				array[filled_rows].is__empty = false;
+				filled_rows++;
+
+			}
+			/*else {
+				
+				array = (Row*)realloc(array, 2*sizeof(array));
+				size *= 2;
+				array[filled_rows] = r;
+				array[filled_rows].is__empty = false;
+				filled_rows++;
+			}*/
+
+		}
+		else {
+			exit(1);
 		}
 	}
-	if (same_name == false) {
-		filled_rows++;
-	
-	if (filled_rows < size)
-	{
-		*array[filled_rows] = r;
-	}
-	else {
-		size = size + 10 + ((int)0.3*filled_rows);
-		realloc(array, sizeof(size));
-		*array[filled_rows] = r;
-	}	
-	}
-	else {
-		exit(1);
-	}
-} //print into console!
+} 
+
 void viewed_tables::print_table(){
-	for (int i(0); i < filled_rows; ++i) {
+	for (int i(0); i < size; ++i) {
 		cout << array[i] << endl;
 	}
 }
 
 void viewed_tables::remove(string name_) {
-
-	int tmp = -1;
-	for (int i(0); i < filled_rows; ++i) {
-		if ((*array[i]).name == name_){
-			tmp = i;
+	if (filled_rows == 0) {
+		throw std::logic_error(" The table is empty "); // dont works
+		cout << " remove error ";
+	} // dont works}
+	else {
+		int tmp = -1;
+		for (int i(0); i < filled_rows; ++i) {
+			if ((array[i]).name == name_) {
+				tmp = i;
+			}
+			if (tmp != -1) {
+				filled_rows--;// memory leak
+				//delete array[tmp].ptr_p;
+				//array[tmp].ptr_p = new Polynomial;
+				array[tmp] = array[filled_rows];
+				array[filled_rows].is__empty = true;
+				break;
+			}
 		}
-		if (tmp != -1) {
-			delete array[tmp];
-			array[tmp] = array[filled_rows];
-			delete array[filled_rows];
-			filled_rows--;
-	}
+		if(tmp == -1) {
+			throw std::logic_error(" This name is not found "); // dont works
+			cout << " search error "; // dont works
+		}
 	}
 };
 
@@ -72,13 +97,14 @@ Polynomial viewed_tables::search(string name_) {
 	int tmp = -1;
 
 	for (int i(0); i < filled_rows; ++i) {
-		if ((*array[i]).name == name_) {
+		if ((array[i]).name == name_) {
 			is_exist = true;
 			tmp = i;
+			break;
 	}
 	}
 	if (tmp != -1) {
-		return *((*array[tmp]).ptr_p);
+		return *((array[tmp]).ptr_p);
 	}
 	else {
 		throw std::logic_error(" This row is not found ");
