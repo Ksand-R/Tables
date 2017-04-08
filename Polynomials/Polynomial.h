@@ -29,4 +29,5 @@ public:
 	void bring_similar();
 	bool operator==(const Polynomial& rhs) const;
 	~Polynomial();
+	friend ostream& operator << (ostream& os, const Polynomial& p);
 };

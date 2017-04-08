@@ -19,10 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="sorted_t.h" />
     <ClInclude Include="Tabl_proj.h" />
+    <ClInclude Include="viewed.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="sorted_t.cpp" />
     <ClCompile Include="Tabl_proj.cpp" />
+    <ClCompile Include="viewed.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0F892B3A-6753-4D19-A8E6-2AE6A9693600}</ProjectGuid>

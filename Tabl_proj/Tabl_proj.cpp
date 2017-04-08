@@ -1,4 +1,3 @@
-#pragma once
 #include "Tabl_proj.h"
 
 Row::Row(string n, Polynomial* p) {
@@ -13,3 +12,18 @@ Row& Row::operator =(const Row& n) {
 		return *this;
 	}
 }
+
+ostream& operator << (ostream& os, const Row& row)
+{
+	os << row.name << "		"<< *(row.ptr_p);
+	return os;
+}
+
+//
+//Table::Table(){
+//	Row* array[SIZE] = {};
+//	for (int i(0); i < SIZE; ++i) {
+//		(*array[i]).name = "None";
+//	}
+//	count_rows = 0;
+//}
