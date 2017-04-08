@@ -409,7 +409,7 @@ ostream& operator << (ostream& os, const Polynomial& p) {
 		}
 
 		if ((temp->next) && (temp->next->coef > 0) && (temp->coef != 0)) {
-			os <<' + ';
+			os <<" + ";
 		}
 		temp = temp->next;
 	}

@@ -43,14 +43,26 @@ void viewed_tables::insert(const Row& r){
 				filled_rows++;
 
 			}
-			/*else {
-				
-				array = (Row*)realloc(array, 2*sizeof(array));
-				size *= 2;
-				array[filled_rows] = r;
-				array[filled_rows].is__empty = false;
-				filled_rows++;
-			}*/
+			else {
+			Row* tmp = new Row[size + 10];
+			for (int i = 0; i < size + 10; i++) {
+				tmp[i].ptr_p = new Polynomial;
+				tmp[i].name = "emp";
+				tmp[i].is__empty = true;
+			}
+			for (int i = 0; i < size; i++)
+			{
+			tmp[i] = array[i];
+			}
+			delete[] array;
+			size+= 10;
+
+			array = tmp;
+
+			array[filled_rows] = r;
+			array[filled_rows].is__empty = false;
+			filled_rows++;
+			}
 
 		}
 		else {

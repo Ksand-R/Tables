@@ -3,7 +3,7 @@
 
 class viewed_tables: public Table {
 private:
-	int size = 15;
+	int size = 5;
 	Row* array;
 public:
 	viewed_tables(); //+-
