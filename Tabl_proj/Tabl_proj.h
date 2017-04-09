@@ -30,7 +30,7 @@ public:
 
 	virtual void insert(const Row& r) = 0;
 	virtual void remove(string name) = 0;
-	virtual Polynomial search(string name) = 0;
+	virtual int search(string name) = 0;
 	virtual void repacking() = 0;
 	virtual void print_table() = 0;
 

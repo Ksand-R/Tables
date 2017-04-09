@@ -11,11 +11,11 @@ public:
 	void print_table(); //+-
 	void insert(const Row& r); //+-
 	void remove(string name); // -
-	Polynomial search(string name); //+-
+	int search(string name); //+-
 	void repacking() {}; //
 	void realloc_() {}; //
 	Row& operator [](const int i) { return array[i]; } //+-
 
 	friend ostream& operator << (ostream& os, const viewed_tables& t); //+
-
+	
 };

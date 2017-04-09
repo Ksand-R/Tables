@@ -91,7 +91,9 @@ void viewed_tables::remove(string name_) {
 			if (tmp != -1) {
 				filled_rows--;// memory leak
 				//delete array[tmp].ptr_p;
+				//(array[tmp].ptr_p)->~Polynomial();
 				//array[tmp].ptr_p = new Polynomial;
+
 				array[tmp] = array[filled_rows];
 				array[filled_rows].is__empty = true;
 				break;
@@ -104,7 +106,7 @@ void viewed_tables::remove(string name_) {
 	}
 };
 
-Polynomial viewed_tables::search(string name_) {
+int viewed_tables::search(string name_) {
 	bool is_exist = false;
 	int tmp = -1;
 
@@ -116,7 +118,8 @@ Polynomial viewed_tables::search(string name_) {
 	}
 	}
 	if (tmp != -1) {
-		return *((array[tmp]).ptr_p);
+		return tmp;
+		//return *((array[tmp]).ptr_p);
 	}
 	else {
 		throw std::logic_error(" This row is not found ");

@@ -12,6 +12,8 @@ private:
 	int size; // counter of amount of monoms
 
 public:
+	Monom* get_head() { return head; }
+	Monom* get_tail() { return tail; }
 	Polynomial();
 	Polynomial(const Polynomial& p);
 	void Input_poly();
