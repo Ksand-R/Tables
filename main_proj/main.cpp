@@ -1,9 +1,10 @@
 #include <iostream>
 #include "Monom.h"
-#include "Polynomial.h"
+//#include "Polynomial.h"
 #include "Tabl_proj.h"
 #include "viewed.h"
 #include "sorted_t.h"
+#include "../Polynomials/Polynomial.h"
 using namespace std;
 
 int main() {

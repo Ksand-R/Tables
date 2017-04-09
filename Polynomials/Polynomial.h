@@ -2,7 +2,8 @@
 #include <iostream>
 #include <cstdio>
 #include <limits>
-#include "Monom.h"
+//#include "Monom.h"
+#include "../Monom/Monom.h"
 using namespace std;
 
 class Polynomial {

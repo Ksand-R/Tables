@@ -1,5 +1,5 @@
-#pragma once
 #include "sorted_t.h"
+#include <iostream>
 
 sorted_t::sorted_t() {
 	array = new Row[size];
@@ -7,7 +7,7 @@ sorted_t::sorted_t() {
 	for (int i(0); i < size; ++i) {
 		array[i].is__empty = true;
 		array[i].name = "emp";
-		array[i].ptr_p = NULL;
+		array[i].ptr_p = new Polynomial;
 	}
 }
 
@@ -21,6 +21,7 @@ void sorted_t::insert(const Row& r) {
 		array[0] = r;
 		array[0].is__empty = false;
 		curr_pos++;
+		//cout << array[0] << endl;
 	}
 	else {
 		int tmp = search(r.name);
@@ -38,6 +39,11 @@ void sorted_t::insert(const Row& r) {
 			array[curr_pos].is__empty = false;
 		}
 	}
+	//for (int i(0); i < curr_pos; ++i) {
+	//	cout << array[i] << endl;
+	//}
+	//cout << "alive" << endl;
+
 }
 
 int sorted_t::search(string name) {
@@ -48,7 +54,7 @@ int sorted_t::search(string name) {
 			return -1;
 		}
 		else {
-			int left = 0;
+			int left = -1;
 
 			int right = curr_pos;
 
