@@ -27,7 +27,7 @@ void sorted_t::insert(const Row& r) {
 		int tmp = search(r.name);
 		curr_pos++;
 		if (tmp < curr_pos) {
-			
+
 			for (int i(curr_pos); i > tmp; --i) {
 				array[i] = array[i - 1];
 			}
@@ -47,30 +47,30 @@ void sorted_t::insert(const Row& r) {
 }
 
 int sorted_t::search(string name) {
-		if (curr_pos == 0)
+	if (curr_pos == 0)
+	{
+		throw std::logic_error(" This name is not found "); // dont works
+		cout << " search error "; // dont works
+		return -1;
+	}
+	else {
+		int left = -1;
+
+		int right = curr_pos;
+
+		int mid;
+		while (left < right - 1)
 		{
-			throw std::logic_error(" This name is not found "); // dont works
-			cout << " search error "; // dont works
-			return -1;
+			mid = (left + right) / 2;
+			if (array[mid].name < name)
+				left = mid;
+			else
+				right = mid;
 		}
-		else {
-			int left = -1;
 
-			int right = curr_pos;
-
-			int mid;
-			while (left < right - 1)
-			{
-				mid = (left + right) / 2;
-				if (array[mid].name < name)
-					left = mid;
-				else
-					right = mid;
-			}
-
-			return right;
-			//return *(array[right].ptr_p);
-		}
+		return right;
+		//return *(array[right].ptr_p);
+	}
 
 }
 
