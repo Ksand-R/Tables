@@ -6,16 +6,17 @@ using namespace std;
 viewed_tables::viewed_tables() {
 	
 	array = new Row[size];
-	for(int i(0); i < size; i++){
+	/*for(int i(0); i < size; i++){
 		array[i].ptr_p = new Polynomial;
 		array[i].name = "emp";
 		array[i].is__empty = true;
-	}
+	}*/
 	filled_rows = 0;	
 }
 
 viewed_tables::~viewed_tables() {
 	delete[] array;
+
 	filled_rows = 0;
 }
 
@@ -88,17 +89,19 @@ void viewed_tables::remove(string name_) {
 			if ((array[i]).name == name_) {
 				tmp = i;
 			}
-			if (tmp != -1) {
-				filled_rows--;// memory leak
-				//delete array[tmp].ptr_p;
-				//(array[tmp].ptr_p)->~Polynomial();
-				//array[tmp].ptr_p = new Polynomial;
-
-				array[tmp] = array[filled_rows];
-				array[filled_rows].is__empty = true;
-				break;
-			}
+			
 		}
+		if (tmp != -1) {
+			filled_rows--;// memory leak
+						  //delete array[tmp].ptr_p;
+						  //(array[tmp].ptr_p)->~Polynomial();
+						  //array[tmp].ptr_p = new Polynomial;
+
+			array[tmp] = array[filled_rows];
+			array[filled_rows].is__empty = true;
+		
+		}
+		
 		if(tmp == -1) {
 			throw std::logic_error(" This name is not found "); // dont works
 			cout << " search error "; // dont works

@@ -12,6 +12,9 @@ sorted_t::sorted_t() {
 }
 
 sorted_t::~sorted_t() {
+	//for (int i(0); i < size; ++i) {
+	//	array[i].ptr_p->~Polynomial();
+	//} // leak!
 	delete[] array;
 	curr_pos = 0;
 }
@@ -25,7 +28,7 @@ void sorted_t::insert(const Row& r) {
 	}
 	else {
 		int tmp = search(r.name);
-		curr_pos++;
+		
 		if (tmp < curr_pos) {
 
 			for (int i(curr_pos); i > tmp; --i) {
@@ -38,6 +41,7 @@ void sorted_t::insert(const Row& r) {
 			array[curr_pos] = r;
 			array[curr_pos].is__empty = false;
 		}
+		curr_pos++;
 	}
 	//for (int i(0); i < curr_pos; ++i) {
 	//	cout << array[i] << endl;
@@ -79,6 +83,11 @@ void sorted_t::remove(string r) {
 	int is_found = search(r);
 	if (is_found != -1) {
 		array[is_found].is__empty = true;
+		array[is_found].name = "pseudo emp";
+
+		//array[is_found].ptr_p->~Polynomial(); //?
+		//array[is_found].ptr_p = new Polynomial;
+		is_found = -1;
 	}
 	else {
 		throw std::logic_error(" This name is not found "); // dont works

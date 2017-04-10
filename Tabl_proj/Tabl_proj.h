@@ -12,12 +12,23 @@ public:
 	Polynomial* ptr_p;
 	bool is__empty;
 
-	Row() { name = "emp", ptr_p = NULL; }
+	Row() { name = "emp", ptr_p = NULL; is__empty = true; }
 	Row(string n, Polynomial* p);
 	Row& operator =(const Row& n);
+	Row(const Row& r) {
+		name = r.name;
+		if (r.ptr_p!= NULL) 
+			ptr_p = new Polynomial(*r.ptr_p);
+		else ptr_p = NULL;
+		is__empty = r.is__empty;
+	}
 	friend ostream& operator << (ostream& os, const Row& row);
 	
-	
+	~Row() {
+		if (ptr_p) {
+			delete ptr_p;
+		}
+	}
 };
 
 

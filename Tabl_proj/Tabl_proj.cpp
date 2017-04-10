@@ -2,13 +2,13 @@
 
 Row::Row(string n, Polynomial* p) {
 	name = n;
-	ptr_p = p;
+	ptr_p = new Polynomial(*p);
 }
 Row& Row::operator =(const Row& n) {
 	if (this == &n) { return *this; }
 	else {
 		name = n.name;
-		ptr_p = n.ptr_p;
+		ptr_p = new Polynomial(*n.ptr_p);
 		return *this;
 	}
 }
