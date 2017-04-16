@@ -19,11 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="hash_t.h" />
     <ClInclude Include="sorted_t.h" />
     <ClInclude Include="Tabl_proj.h" />
     <ClInclude Include="viewed.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="hash_t.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../Monom;../Polynomials;../Tabl_proj</AdditionalIncludeDirectories>
+    </ClCompile>
     <ClCompile Include="sorted_t.cpp" />
     <ClCompile Include="Tabl_proj.cpp" />
     <ClCompile Include="viewed.cpp" />
