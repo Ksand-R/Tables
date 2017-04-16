@@ -385,7 +385,7 @@ Polynomial::~Polynomial() {
 		head = temp;
 		tail->next = head;
 	}
-	delete head;
+	delete head; 
 	size = 0;
 }
 ostream& operator << (ostream& os, const Polynomial& p) {
