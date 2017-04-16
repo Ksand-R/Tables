@@ -25,7 +25,7 @@ hash_t::~hash_t() {
 
 }
 
-unsigned int hash_t::MurmurHash2(char * key, unsigned int len)
+unsigned int hash_t::MurmurHash2(const char * key, unsigned int len)
 {
 	//Copyright Austin Appleby
 	const unsigned int m = 0x5bd1e995;
@@ -34,7 +34,7 @@ unsigned int hash_t::MurmurHash2(char * key, unsigned int len)
 
 	unsigned int h = seed ^ len;
 
-	const unsigned char * data = (const unsigned char *)key;
+	const unsigned char * data = (unsigned char *)key;
 	unsigned int k;
 
 	while (len >= 4)
@@ -71,4 +71,33 @@ unsigned int hash_t::MurmurHash2(char * key, unsigned int len)
 	h ^= h >> 15;
 
 	return h % SIZE;
+}
+
+
+void hash_t::insert(const Row& r) {
+	int hash = MurmurHash2(r.name.c_str(), (unsigned int)(r.name).length());
+	array[hash]->push_back(r);
+	//add_el_in_tail(r);
+}
+
+void hash_t::remove(string r) {
+	unsigned int hash = MurmurHash2((r.c_str()), r.length());
+	Polynomial* tmp = find_row(r);
+	array[hash]->remove(Row(r, tmp));
+}
+
+Polynomial* hash_t::find_row(string r) {
+	//_List::find_ptr();
+	int hash = MurmurHash2(r.c_str(), r.length());
+	list<Row>::const_iterator it = array[hash]->begin();
+	list<Row>::const_iterator r_;
+	
+	for (; it != array[hash]->end(); ++it)
+	{
+		if (r == it->name)
+		{
+			return it->ptr_p;
+		}
+	}
+	return NULL;
 }

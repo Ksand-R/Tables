@@ -71,7 +71,7 @@ int main() {
 		//	//A.print_table();
 		//	//cout << "I'm alive" << A.get_curr_pos() << endl;
 		//}
-	for (int i(0); i < 1000000; ++i) {
+	for (int i(0); i < 10; ++i) {
 		hash_t H;
 	}
 
