@@ -6,11 +6,6 @@ using namespace std;
 viewed_tables::viewed_tables() {
 	
 	array = new Row[size];
-	/*for(int i(0); i < size; i++){
-		array[i].ptr_p = new Polynomial;
-		array[i].name = "emp";
-		array[i].is__empty = true;
-	}*/
 	filled_rows = 0;	
 }
 

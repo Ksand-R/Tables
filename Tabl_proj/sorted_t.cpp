@@ -4,17 +4,10 @@
 sorted_t::sorted_t() {
 	array = new Row[size];
 	curr_pos = 0;
-	for (int i(0); i < size; ++i) {
-		array[i].is__empty = true;
-		array[i].name = "emp";
-		array[i].ptr_p = new Polynomial;
-	}
 }
 
 sorted_t::~sorted_t() {
-	//for (int i(0); i < size; ++i) {
-	//	array[i].ptr_p->~Polynomial();
-	//} // leak!
+
 	delete[] array;
 	curr_pos = 0;
 }
@@ -24,30 +17,24 @@ void sorted_t::insert(const Row& r) {
 		array[0] = r;
 		array[0].is__empty = false;
 		curr_pos++;
-		//cout << array[0] << endl;
 	}
-	else {
-		int tmp = search(r.name);
-		
-		if (tmp < curr_pos) {
 
-			for (int i(curr_pos); i > tmp; --i) {
-				array[i] = array[i - 1];
-			}
-			array[tmp] = r;
-			array[tmp].is__empty = false;
-		}
 		else {
-			array[curr_pos] = r;
-			array[curr_pos].is__empty = false;
+			int tmp = search(r.name);
+			if (tmp < curr_pos) {
+				for (int i(curr_pos); i > tmp; --i) {
+					array[i] = array[i - 1];
+					array[i].is__empty = false;
+				}
+				array[tmp] = r;
+				array[tmp].is__empty = false;
+			}
+			else {
+				array[curr_pos] = r;
+				array[curr_pos].is__empty = false;
+			}
+			curr_pos++;
 		}
-		curr_pos++;
-	}
-	//for (int i(0); i < curr_pos; ++i) {
-	//	cout << array[i] << endl;
-	//}
-	//cout << "alive" << endl;
-
 }
 
 int sorted_t::search(string name) {
@@ -57,7 +44,15 @@ int sorted_t::search(string name) {
 		cout << " search error "; // dont works
 		return -1;
 	}
+	
 	else {
+	/*	bool is_found = false;
+		for (int i(0); i < curr_pos; ++i) {
+			if (array[i].name == name) {
+				is_found = true;
+			}
+		}*/
+		
 		int left = -1;
 
 		int right = curr_pos;
@@ -84,10 +79,7 @@ void sorted_t::remove(string r) {
 	if (is_found != -1) {
 		array[is_found].is__empty = true;
 		array[is_found].name = "pseudo emp";
-
-		//array[is_found].ptr_p->~Polynomial(); //?
-		//array[is_found].ptr_p = new Polynomial;
-		is_found = -1;
+		//is_found = -1;
 	}
 	else {
 		throw std::logic_error(" This name is not found "); // dont works
@@ -96,9 +88,29 @@ void sorted_t::remove(string r) {
 
 }
 
+void sorted_t::repacking() {
+	int counter = 0;
+	Row* tmp = new Row[size];
+	for (int i(0); i < curr_pos; ++i) {
+		if (!array[i].is__empty) {
+
+			tmp[counter] = array[i];
+			counter++;
+		}
+
+	}
+	delete[] array; // memory leak?
+
+	array = tmp;
+}
+
 void sorted_t::print_table() {
 	for (int i(0); i < size; ++i) {
-		cout << array[i] << endl;
+		if (array[i].name == "emp") { cout << "emp" << endl; }
+		else {
+			cout << array[i].is__empty << "	" << 
+				array[i] << endl;
+		}
 	}
 }
 
