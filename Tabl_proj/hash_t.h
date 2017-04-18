@@ -15,10 +15,11 @@ public:
 	void insert(const Row& r);
 	void remove(string name);
 	int search(string name) {
+		return 0;
 		//There is no reason to return 
 		//index of row, see find_row function
 	}
 	void repacking() {}
-	void print_table(){}
+	void print_table();
 
 };

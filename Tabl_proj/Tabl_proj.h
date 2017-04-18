@@ -16,6 +16,7 @@ public:
 	Row(string n, Polynomial* p);
 	Row& operator =(const Row& n);
 	Row(const Row& r);
+	bool operator==(const Row& r);
 	friend ostream& operator << (ostream& os, const Row& row);
 	~Row();
 };

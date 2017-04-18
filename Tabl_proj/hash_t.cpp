@@ -11,6 +11,7 @@ hash_t::hash_t() {
 	{
 		array[i] = new list <Row>;
 	}
+	filled_rows = 0;
 
 }
 
@@ -22,7 +23,7 @@ hash_t::~hash_t() {
 	}
 	delete[] array;
 	//cout << "Im alive";
-
+	filled_rows = 0;
 }
 
 unsigned int hash_t::MurmurHash2(const char * key, unsigned int len)
@@ -78,26 +79,51 @@ void hash_t::insert(const Row& r) {
 	int hash = MurmurHash2(r.name.c_str(), (unsigned int)(r.name).length());
 	array[hash]->push_back(r);
 	//add_el_in_tail(r);
+	filled_rows++;
 }
 
 void hash_t::remove(string r) {
 	unsigned int hash = MurmurHash2((r.c_str()), r.length());
-	Polynomial* tmp = find_row(r);
-	array[hash]->remove(Row(r, tmp));
+	//Polynomial* tmp = find_row(r);
+	list<Row>::const_iterator it;
+	for (it = array[hash]->begin(); it != array[hash]->end(); it++) {
+		if (it->name == r) { array[hash]->remove(*it);
+		break;
+		}// erase?
+	}
+	filled_rows--;
+}
+
+
+void hash_t::print_table() {
+	for (int i(0); i < SIZE; ++i) {
+		cout << i << "th chain: ";
+		
+
+		list<Row>::const_iterator it;
+		for (it = array[i]->begin(); it != array[i]->end(); it++) {
+			cout << it->name << " " << *(it->ptr_p) << "; ";
+		}
+		cout << endl;
+		//if (array[i].name == "emp") { cout << "emp" << endl; }
+		//else {
+		//	cout << array[i].is__empty << "	" <<
+		//		array[i] << endl;
+		//}
+	}
 }
 
 Polynomial* hash_t::find_row(string r) {
 	//_List::find_ptr();
-	int hash = MurmurHash2(r.c_str(), r.length());
-	list<Row>::const_iterator it = array[hash]->begin();
-	list<Row>::const_iterator r_;
-	
-	for (; it != array[hash]->end(); ++it)
-	{
-		if (r == it->name)
-		{
-			return it->ptr_p;
-		}
-	}
+	//int hash = MurmurHash2(r.c_str(), r.length());
+	//list<Row>::const_iterator it = array[hash]->begin();
+	//
+	//for (; it != array[hash]->end(); ++it)
+	//{
+	//	if (r == it->name)
+	//	{
+	//		return it->ptr_p;
+	//	}
+	//}
 	return NULL;
 }

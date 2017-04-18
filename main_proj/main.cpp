@@ -9,17 +9,7 @@ using namespace std;
 
 int main() {
 
-	//Polynomial P2;
-	////P2.Input_poly();
-	//P2.add_monom_in_tail(new Monom(2.3, 101010));
-	//P2.add_monom_in_tail(new Monom(4.3, 201010));
-	//	Row R1("abc", &P2);
-	//	Row R2("acd", &P2);
-	//	Row R3("accd", &P2);
-	//	Row R4("adcd", &P2);
-	//	Row R5("ascd", &P2);
-	//	Row R6("aacd", &P2);
-	//	Row R7("aafd", &P2);
+
 
 
 
@@ -71,9 +61,33 @@ int main() {
 		//	//A.print_table();
 		//	//cout << "I'm alive" << A.get_curr_pos() << endl;
 		//}
-	for (int i(0); i < 10; ++i) {
+
+	Polynomial P2;
+	//P2.Input_poly();
+	P2.add_monom_in_tail(new Monom(2.3, 101010));
+	P2.add_monom_in_tail(new Monom(4.3, 201010));
+	Row R1("abc", &P2);
+	Row R2("acd", &P2);
+	Row R3("accd", &P2);
+	Row R4("adcd", &P2);
+	Row R5("ascd", &P2);
+	Row R6("aacd", &P2);
+	Row R7("aafd", &P2);
+
+	//for (int i(0); i < 10; ++i) {
 		hash_t H;
-	}
+		H.insert(R1);
+		H.insert(R2);
+		H.insert(R3);
+		H.insert(R4);
+		H.insert(R5);
+		H.insert(R6);
+		H.insert(R7);
+		H.print_table();
+		H.remove(R2.name);
+		H.print_table();
+
+	//}
 
 
 	return 0;
