@@ -22,6 +22,16 @@ Row::Row(const Row& r)
 	else ptr_p = NULL;
 	is__empty = r.is__empty;
 }
+bool Row::operator==(const Row& a){
+	if (this == &a) {
+		return true;
+}
+	if(this->name == a.name)
+	{
+		return true;
+	}
+	return false;
+}
 
 Row::~Row()
 {

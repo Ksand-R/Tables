@@ -10,12 +10,16 @@ private:
 public:
 	hash_t();
 	~hash_t();
-	unsigned int MurmurHash2(char * key, unsigned int len);
-	Polynomial* find_ptr(string r){}
-	void insert(const Row& r){}
-	void remove(string name){}
-	int search(string name) { return 0; }
-	void repacking(){}
-	void print_table() {}
+	unsigned int MurmurHash2(const char * key, unsigned int len);
+	Polynomial* find_row(string r);
+	void insert(const Row& r);
+	void remove(string name);
+	int search(string name) {
+		return 0;
+		//There is no reason to return 
+		//index of row, see find_row function
+	}
+	void repacking() {}
+	void print_table();
 
 };
