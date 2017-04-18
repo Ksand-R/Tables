@@ -115,15 +115,15 @@ void hash_t::print_table() {
 
 Polynomial* hash_t::find_row(string r) {
 	//_List::find_ptr();
-	//int hash = MurmurHash2(r.c_str(), r.length());
-	//list<Row>::const_iterator it = array[hash]->begin();
-	//
-	//for (; it != array[hash]->end(); ++it)
-	//{
-	//	if (r == it->name)
-	//	{
-	//		return it->ptr_p;
-	//	}
-	//}
+	int hash = MurmurHash2(r.c_str(), r.length());
+	list<Row>::const_iterator it = array[hash]->begin();
+	
+	for (; it != array[hash]->end(); ++it)
+	{
+		if (r == it->name)
+		{
+			return it->ptr_p;
+		}
+	}
 	return NULL;
 }
