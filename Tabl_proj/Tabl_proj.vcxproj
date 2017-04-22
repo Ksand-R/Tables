@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="btree.h" />
     <ClInclude Include="hash_t.h" />
     <ClInclude Include="sorted_t.h" />
     <ClInclude Include="Tabl_proj.h" />

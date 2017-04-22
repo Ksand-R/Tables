@@ -27,6 +27,9 @@
     <ClInclude Include="hash_t.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="btree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Tabl_proj.cpp">
