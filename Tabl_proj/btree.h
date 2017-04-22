@@ -64,3 +64,16 @@ struct Node_tree {
 	}
 };
 
+class btree
+{
+public:
+	Node_tree* root;
+	btree() { root = NULL; }
+	~btree() { root = NULL; }
+
+	void insert(const Row& r){}
+	void remove(string name){}
+	int search(string name) { return 0; }
+	void repacking() {}
+	void print_table() {}
+};
