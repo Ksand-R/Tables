@@ -5,12 +5,14 @@
 #include "sorted_t.h"
 #include "Polynomial.h"
 #include "hash_t.h"
+#include "btree.h"
 using namespace std;
 
 int main() {
 
 
-
+	
+	
 
 
 	//	cout << endl << endl;
@@ -74,8 +76,13 @@ int main() {
 	Row R6("aacd", &P2);
 	Row R7("aafd", &P2);
 
+	Node_tree nt(&R1);
+	
+	cout << nt << endl;
+
+
 	//for (int i(0); i < 10; ++i) {
-		hash_t H;
+	/*	hash_t H;
 		H.insert(R1);
 		H.insert(R2);
 		H.insert(R3);
@@ -86,7 +93,7 @@ int main() {
 		H.print_table();
 		H.remove(R2.name);
 		H.print_table();
-
+*/
 	//}
 
 
