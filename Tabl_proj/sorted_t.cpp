@@ -20,7 +20,7 @@ void sorted_t::insert(const Row& r) {
 	}
 
 		else {
-			int tmp = search(r.name);
+			int tmp = binsearch(r.name);
 			if (tmp < curr_pos) {
 				for (int i(curr_pos); i > tmp; --i) {
 					array[i] = array[i - 1];
@@ -37,12 +37,12 @@ void sorted_t::insert(const Row& r) {
 		}
 }
 
-int sorted_t::search(string name) {
+int sorted_t::binsearch(string name) {
 	if (curr_pos == 0)
 	{
 		throw std::logic_error(" This name is not found "); // dont works
 		cout << " search error "; // dont works
-		return -1;
+		return NULL;
 	}
 	
 	else {
@@ -75,7 +75,7 @@ int sorted_t::search(string name) {
 
 void sorted_t::remove(string r) {
 
-	int is_found = search(r);
+	int is_found = binsearch(r);
 	if (is_found != -1) {
 		array[is_found].is__empty = true;
 		array[is_found].name = "pseudo emp";

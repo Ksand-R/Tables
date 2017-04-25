@@ -14,8 +14,8 @@ public:
 	Polynomial* find_row(string r);
 	void insert(const Row& r);
 	void remove(string name);
-	int search(string name) {
-		return 0;
+	Row* search(string name) {
+		return new Row;
 		//There is no reason to return 
 		//index of row, see find_row function
 	}

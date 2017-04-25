@@ -42,26 +42,8 @@ struct Node_tree {
 		left = NULL;
 		right = NULL;
 	}
-	friend ostream& operator << (ostream& os, const Node_tree& t) {
-		if (t.parent)
-			os << "Parent:" << *t.parent;
-		else
-			os << "Parent: NULL;	";
-
-		if (t.left)
-			os << "Left:" << *t.left;
-		else
-			os << "Left: NULL;	";
-
-		if (t.right)
-			os << "Right:" << *t.right << endl;
-		else
-			os << "Right: NULL;	" << endl;
-
-		os	<< "row: " << t.row_->name << "   " <<
-			*(t.row_->ptr_p) << endl;
-		return os;
-	}
+	friend ostream& operator << (ostream& os, const Node_tree& t);
+	
 };
 
 class btree
@@ -71,9 +53,10 @@ public:
 	btree() { root = NULL; }
 	~btree() { root = NULL; }
 
-	void insert(const Row& r){}
+	void insert(const Row& r);
 	void remove(string name){}
-	int search(string name) { return 0; }
+	Row* search(string name);
 	void repacking() {}
 	void print_table() {}
+	void tree_ins(Node_tree* t);
 };
