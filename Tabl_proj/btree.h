@@ -55,8 +55,14 @@ public:
 
 	void insert(const Row& r);
 	void remove(string name){}
-	Row* search(string name);
 	void repacking() {}
 	void print_table() {}
 	void tree_ins(Node_tree* t);
+
+
+	Row* search(string name);
+	Node_tree* search_min(Node_tree* r);
+	Node_tree* search_max(Node_tree* r);
+	Node_tree* search_next(Node_tree* r);
+	Node_tree* search_prev(Node_tree* r);
 };

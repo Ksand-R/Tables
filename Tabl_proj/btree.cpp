@@ -67,9 +67,9 @@ void btree::tree_ins(Node_tree* n)
 		root->parent = root;
 	}
 	else
-		if (Find(root, (n->GetData())->GetKey()) != NULL)
+		if (search(n->row_->name) != nullptr)
 		{
-			throw "The keys are equal. Paste imposible";
+			throw "Error. Equal names";
 		}
 		else
 		{
@@ -81,17 +81,54 @@ void btree::tree_ins(Node_tree* n)
 				if (tmp->row_->name < n->row_->name)
 					tmp = tmp->right;
 				else
-					tmp = tmp->GetLeft();
+					tmp = tmp->left;
 			}
-			if (prev->GetData()->GetKey() > n->GetData()->GetKey())
+			if (prev->row_->name > n->row_->name)
 			{
-				prev->SetLeft(n);
-				(prev->GetLeft())->SetParent(prev);
+				prev = n->left;
+				prev->parent = prev->left;
+				
 			}
 			else
 			{
-				prev->SetRight(n);
-				(prev->GetRight())->SetParent(prev);
+				prev = n->right;
+				prev->parent = prev->right;
 			}
 		}
+}
+
+
+Node_tree* btree::search_min(Node_tree* root)
+{
+	Node_tree* tmp = root;
+	while (tmp->left != NULL)
+	{
+		tmp = tmp->left;
+	}
+	return tmp;
+}
+Node_tree* btree::search_max(Node_tree* root)
+{
+	Node_tree*  tmp = root;
+	while (tmp->right != NULL)
+	{
+		tmp = tmp->right;
+	}
+	return tmp;
+}
+Node_tree* btree::search_next(Node_tree* root)
+{
+	Node_tree* tmp = NULL;
+	if (root->right != NULL)
+		tmp = search_min(root->right);
+	return tmp;
+}
+Node_tree* btree::search_prev(Node_tree* root)
+{
+	Node_tree* tmp = NULL;
+	if (root->left != NULL)
+		tmp = search_max(root->left);
+	else if (root->parent != NULL)
+		tmp = root->parent;
+	return tmp;
 }
