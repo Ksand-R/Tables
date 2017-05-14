@@ -11,59 +11,6 @@ using namespace std;
 int main() {
 
 
-	
-	
-
-
-	//	cout << endl << endl;
-	//	for (int i(0); i < 1000000; ++i) {
-	//		viewed_tables a;
-	//		a.insert(R1);
-	//		a.insert(R2);
-	//		a.insert(R3);
-	//		a.insert(R4);
-	//		a.insert(R5);
-	//		a.insert(R6);
-	//		a.insert(R7);
-	//		//a.print_table();
-
-	//		a.remove("acd");
-	//		a.remove("accd");
-	//		a.remove("adcd");
-	//		a.remove("ascd");
-	//		a.remove("aacd");
-
-			//a.print_table();
-			//cout << a.search("aafd") << endl;
-
-			//cout << "I'm alive yet" << endl;
-			//a.remove("aafd");
-			//a.print_table();
-			//cout << "I'm alive yet" << endl;
-		//}
-
-		//for (int i(0); i < 100000; ++i) {
-		//	sorted_t A;
-		//	A.insert(R1);
-		//	A.insert(R2);
-		//	A.insert(R3);
-		//	A.insert(R4);
-		//	A.insert(R5);
-		//	A.insert(R6);
-		//	A.insert(R7);
-		//	//cout << "__________________" << endl;
-		//	//A.print_table();
-		//	//cout << "__________________" << endl;
-		//	A.remove("acd");
-		//	A.remove("ascd");
-		//	A.remove("aafd");
-		//	//A.print_table();
-		//	//cout << "I'm alive" << A.get_curr_pos() << endl;
-		//	A.repacking();
-		//	//A.print_table();
-		//	//cout << "I'm alive" << A.get_curr_pos() << endl;
-		//}
-
 	Polynomial P2;
 	//P2.Input_poly();
 	P2.add_monom_in_tail(new Monom(2.3, 101010));
@@ -75,12 +22,65 @@ int main() {
 	Row R5("ascd", &P2);
 	Row R6("aacd", &P2);
 	Row R7("aafd", &P2);
+	
 
-	Node_tree nt(&R1);
+
+	//	cout << endl << endl;
+		//for (int i(0); i < 1000000; ++i) {
+		//	viewed_tables a;
+		//	a.insert(R1);
+		//	a.insert(R2);
+		//	a.insert(R3);
+		//	a.insert(R4);
+		//	a.insert(R5);
+		//	a.insert(R6);
+		//	a.insert(R7);
+		//	//a.print_table();
+
+		//	a.remove("acd");
+		//	a.remove("accd");
+		//	a.remove("adcd");
+		//	a.remove("ascd");
+		//	a.remove("aacd");
+
+		//	//a.print_table();
+		//	//cout << a.search("aafd") << endl;
+
+		//	//cout << "I'm alive yet" << endl;
+		//	a.remove("aafd");
+		//	//a.print_table();
+		//	//cout << "I'm alive yet" << endl;
+		//}
+
+		for (int i(0); i < 100000; ++i) {
+			sorted_t A;
+			A.insert(R1);
+			A.insert(R2);
+			A.insert(R3);
+			A.insert(R4);
+			A.insert(R5);
+			A.insert(R6);
+			A.insert(R7);
+			//cout << "__________________" << endl;
+			//A.print_table();
+			//cout << "__________________" << endl;
+			A.remove("acd");
+			A.remove("ascd");
+			A.remove("aafd");
+			//A.print_table();
+			//cout << "I'm alive" << A.get_curr_pos() << endl;
+			A.repacking();
+			//A.print_table();
+			//cout << "I'm alive" << A.get_curr_pos() << endl;
+		}
+
+
+
+	/*Node_tree nt(&R1);
 	
 	cout << nt << endl;
 
-
+*/
 	//for (int i(0); i < 10; ++i) {
 	/*	hash_t H;
 		H.insert(R1);

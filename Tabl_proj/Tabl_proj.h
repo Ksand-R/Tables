@@ -12,7 +12,7 @@ public:
 	Polynomial* ptr_p;
 	bool is__empty;
 
-	inline Row() { name = "emp", ptr_p = NULL; is__empty = true; }
+	inline Row() { name = "emp", ptr_p = nullptr; is__empty = true; }
 	Row(string n, Polynomial* p);
 	Row& operator =(const Row& n);
 	Row(const Row& r);

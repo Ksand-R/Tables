@@ -89,7 +89,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../gtest;../Polynomials;../Monom;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../gtest;../Polynomials;../Monom;../Tabl_proj;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -155,6 +155,7 @@
     <ClCompile Include="test_main.cpp" />
     <ClCompile Include="test_monom.cpp" />
     <ClCompile Include="test_polynomial.cpp" />
+    <ClCompile Include="test_row.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
