@@ -26,6 +26,7 @@
     <ClInclude Include="viewed.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="btree.cpp" />
     <ClCompile Include="hash_t.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../Monom;../Polynomials;../Tabl_proj</AdditionalIncludeDirectories>
     </ClCompile>

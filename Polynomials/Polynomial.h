@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstdio>
 #include <limits>
-//#include "Monom.h"
+#include "Monom.h"
 #include "../Monom/Monom.h"
 using namespace std;
 
@@ -16,6 +16,9 @@ public:
 	Monom* get_head() { return head; }
 	Monom* get_tail() { return tail; }
 	Polynomial();
+	//Polynomial(Monom* m) {
+	//	head = m;
+	//}
 	Polynomial(const Polynomial& p);
 	void Input_poly();
 	void bubble_sort();

@@ -10,6 +10,7 @@ viewed_tables::viewed_tables() {
 }
 
 viewed_tables::~viewed_tables() {
+
 	delete[] array;
 
 	filled_rows = 0;
@@ -104,7 +105,7 @@ void viewed_tables::remove(string name_) {
 	}
 };
 
-int viewed_tables::search(string name_) {
+Row* viewed_tables::search(string name_) {
 	bool is_exist = false;
 	int tmp = -1;
 
@@ -116,7 +117,7 @@ int viewed_tables::search(string name_) {
 	}
 	}
 	if (tmp != -1) {
-		return tmp;
+		return &array[tmp];
 		//return *((array[tmp]).ptr_p);
 	}
 	else {

@@ -12,7 +12,7 @@ public:
 	Polynomial* ptr_p;
 	bool is__empty;
 
-	inline Row() { name = "emp", ptr_p = NULL; is__empty = true; }
+	inline Row() { name = "emp", ptr_p = nullptr; is__empty = true; }
 	Row(string n, Polynomial* p);
 	Row& operator =(const Row& n);
 	Row(const Row& r);
@@ -29,7 +29,7 @@ public:
 
 	virtual void insert(const Row& r) = 0;
 	virtual void remove(string name) = 0;
-	virtual int search(string name) = 0;
-	virtual void repacking() = 0;
+	virtual Row* search(string name) = 0;
 	virtual void print_table() = 0;
 };
+              
