@@ -10,6 +10,7 @@ viewed_tables::viewed_tables() {
 }
 
 viewed_tables::~viewed_tables() {
+
 	delete[] array;
 
 	filled_rows = 0;

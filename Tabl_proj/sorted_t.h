@@ -16,7 +16,6 @@ public:
 	Row* search(string name) { return NULL; }
 	int binsearch(string name); //+-
 	void repacking();
-	void realloc_() {}; //
 	inline int get_curr_pos(){return curr_pos;}
 	Row& operator [](const int i) { return array[i]; } //+-
 	friend ostream& operator << (ostream& os, const sorted_t& t);

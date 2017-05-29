@@ -88,10 +88,11 @@ void hash_t::remove(string r) {
 	list<Row>::const_iterator it;
 	for (it = array[hash]->begin(); it != array[hash]->end(); it++) {
 		if (it->name == r) { array[hash]->remove(*it);
+		filled_rows--;
 		break;
 		}// erase?
 	}
-	filled_rows--;
+	
 }
 
 

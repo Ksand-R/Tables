@@ -46,17 +46,8 @@ int sorted_t::binsearch(string name) {
 	}
 	
 	else {
-	/*	bool is_found = false;
-		for (int i(0); i < curr_pos; ++i) {
-			if (array[i].name == name) {
-				is_found = true;
-			}
-		}*/
-		
 		int left = -1;
-
 		int right = curr_pos;
-
 		int mid;
 		while (left < right - 1)
 		{

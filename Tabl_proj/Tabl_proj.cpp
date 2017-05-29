@@ -2,7 +2,8 @@
 
 Row::Row(string n, Polynomial* p) {
 	name = n;
-	ptr_p = new Polynomial(*p); 
+	if (p != NULL)
+		ptr_p = new Polynomial (*p);
 	is__empty = false;
 }
 Row& Row::operator =(const Row& n) {
@@ -35,8 +36,8 @@ bool Row::operator==(const Row& a){
 
 Row::~Row()
 {
-	if (ptr_p) {
-		name = "emp";
+	if (ptr_p != NULL) {
+		// name = "emp";
 		delete ptr_p;
 	}
 }

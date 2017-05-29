@@ -13,9 +13,7 @@ public:
 	void remove(string name); // -
 	Row* search(string name); //+-
 	void repacking() {}; //
-	void realloc_() {}; //
 	Row& operator [](const int i) { return array[i]; } //+-
-
 	friend ostream& operator << (ostream& os, const viewed_tables& t); //+
 	
 };

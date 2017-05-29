@@ -14,12 +14,12 @@ public:
 	Polynomial* find_row(string r);
 	void insert(const Row& r);
 	void remove(string name);
+	void repacking() {};
 	Row* search(string name) {
 		return new Row;
 		//There is no reason to return 
 		//index of row, see find_row function
 	}
-	void repacking() {}
 	void print_table();
 
 };
